@@ -1,0 +1,6 @@
+{
+  "name": "com.metrological.app.Fireplace",
+  "dependencies": {
+    "@lightningjs/sdk": "^4.8.3"
+  }
+}
