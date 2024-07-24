@@ -19,3 +19,5 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+           npm --version
+           lng dist
