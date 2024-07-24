@@ -13,6 +13,7 @@ export default class App extends Lightning.Component {
 	}
 
 	_firstActive() {
+//change adding to see difference
 		this.tag('Loader').start()
 		VideoPlayer.consumer(this)
 		setTimeout(() => {
