@@ -15,13 +15,13 @@ jobs:
         with:
           node-version: "16"
       - name: Install dependencies
-        run: npm install -g @lightningjs/cli lng --version
-      - name: check current working directory
-        run: chdir
+        run: npm install -g @lightningjs/cli 
+             lng --version
       - name: install node modules
         run: npm install
       - name: create lng dist
         run: lng dist
+        working-directory: ./
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@master
         with:
