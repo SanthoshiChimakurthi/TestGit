@@ -18,7 +18,12 @@ jobs:
         node-version: '14'
 
     - name: Install dependencies
-      run: npm install
+      run: npm install -g @lightningjs/cli
+           lng --version
+           pwd
+           cd ./accelerator-home-ui
+           pwd
+           npm install
            npm --version
            lng dist
 
