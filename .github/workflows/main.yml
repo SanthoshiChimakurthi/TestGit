@@ -20,8 +20,8 @@ jobs:
       - name: install node modules
         run: npm install
         working-directory: ./
-      - name: create lng dist
-        run: lng dist
+      - name: create lng build
+        run: lng build
         working-directory: ./
       - name: Commit and Push dist folder
         run:
@@ -29,6 +29,6 @@ jobs:
           git config --global user.name "santhoshichimakurthi"
           git add .
           git commit -m "Add dist folder"
-          git push origin main
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.TESTGIT_TOKEN }}
