@@ -17,8 +17,8 @@ jobs:
  
     - name: Install lng
       run: |
-        npm install -g @lightningjs/cli || echo "lng installation via npm failed"
-        npm install -g typescript
+        npm install -g @lightningjs/cli
+       
         lng --version
  
     - name: Install dependencies
@@ -31,10 +31,10 @@ jobs:
  
     - name: Commit and Push dist folder
       run: |
-        git config --global user.email "santhoshichimakurthi@gmail.com"
-        git config --global user.name "santhoshichimakurthi"
+        git config  user.email "santhoshichimakurthi@gmail.com"
+        git config user.name "santhoshichimakurthi"
         git add ./dist
         git commit -m "Add dist folder"
-        git push origin main
+        git push -f origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
