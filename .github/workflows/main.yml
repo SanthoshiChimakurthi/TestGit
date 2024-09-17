@@ -15,10 +15,12 @@ jobs:
         with:
           node-version: "16"
       - name: Install dependencies
-        run: npm install -g @lightningjs/cli 
-             lng --version
+        run: npm install -g @lightningjs/cli
+      - name: check lng version
+        run: lng --version
       - name: install node modules
         run: npm install
+        working-directory: ./
       - name: create lng dist
         run: lng dist
         working-directory: ./
