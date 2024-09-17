@@ -19,18 +19,12 @@ jobs:
 
     - name: Install dependencies
       run: npm install -g @lightningjs/cli
-           lng --version
-           pwd
-           cd ./accelerator-home-ui
-           pwd
-           npm install
-           npm --version
-           lng dist
 
-    - name: Commit and Push dist folder
-      run:
-        git config --global user.email "santhoshichimakurthi@gmail.com"
-        git config --global user.name "santhoshichimakurthi"
-        git add ./accelerator-home-ui/dist
-        git commit -m "Add dist folder"
-        git push origin main
+    - name: Version print
+      run: lng --version
+           pwd
+      
+      
+        
+
+    
