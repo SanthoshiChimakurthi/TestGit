@@ -1,35 +1,29 @@
+---
 name: trigger
-
 on:
   push:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    -name: repo checkout
-    - uses: actions/checkout@v2
-
-    - name: install Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
-
-    - name: Install dependencies
-      run: npm install -g @lightningjs/cli
-           lng --version
-    - name: check current working directory
-      run: chdir
-    -name: install node modules 
-      run: npm install
-    -name: create lng dist
-      run: lng dist
-    - name: Commit and push changes
-      uses: devops-infra/action-commit-push@master
+      - name: repo checkout
+        uses: actions/checkout@v2
+      - name: install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Install dependencies
+        run: npm install -g @lightningjs/cli lng --version
+      - name: check current working directory
+        run: chdir
+      - name: install node modules
+        run: npm install
+      - name: create lng dist
+        run: lng dist
+      - name: Commit and push changes
+        uses: devops-infra/action-commit-push@master
         with:
           github_token: ${{ secrets.TestGit_Token }}
           commit_message: Replaced dist folder auto commit from trigger
-      
