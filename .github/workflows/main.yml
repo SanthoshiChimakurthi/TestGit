@@ -25,7 +25,9 @@ jobs:
         run: lng dist
         working-directory: ./
       - name: Commit and push changes
-        uses: devops-infra/action-commit-push@master
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          github_token: ${{ secrets.TestGit_Token }}
-          commit_message: Replaced dist folder auto commit from trigger
+          commit_message: Replaced dist folder auto commit from trigger using stefanz
+          branch: main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
