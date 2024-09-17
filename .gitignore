@@ -41,9 +41,6 @@ jspm_packages
 #mac
 .DS_Store
 
-dist
-/package-lock.json
-
 releases
 .tmp
 build
