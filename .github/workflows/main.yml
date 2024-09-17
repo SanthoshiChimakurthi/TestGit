@@ -1,40 +1,40 @@
-name: Install Dependencies
-
-on:
-  push:
-    branches:
-      - main
-
+name: demo
+ 
+on: [push]
+ 
 jobs:
-  install:
+  build:
     runs-on: ubuntu-latest
-
+ 
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Use Node.js
+    - name: Checkout repository
+      uses: actions/checkout@v2
+ 
+    - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
-
+        node-version: '16'
+ 
+    - name: Install lng
+      run: |
+        npm install -g @lightningjs/cli || echo "lng installation via npm failed"
+        npm install -g typescript
+        lng --version
+ 
     - name: Install dependencies
-      run: npm install -g @lightningjs/cli
-
-    - name: Version print
-      run: lng --version
-           chdir
-           npm install
-    - name: Commit and Push node modules folder
-      run:
+      run: npm install
+      working-directory: ./
+ 
+    - name: Create dist
+      run: lng dist
+      working-directory: ./
+ 
+    - name: Commit and Push dist folder
+      run: |
         git config --global user.email "santhoshichimakurthi@gmail.com"
         git config --global user.name "santhoshichimakurthi"
-        git add .
-        git status
-        git commit -m "Adding changes"
-        
-
-      
-      
-        
-
-    
+        git add ./dist
+        git commit -m "Add dist folder"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
