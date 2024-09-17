@@ -22,7 +22,17 @@ jobs:
 
     - name: Version print
       run: lng --version
-           pwd
+           chdir
+           npm install
+    - name: Commit and Push node modules folder
+      run:
+        git config --global user.email "santhoshichimakurthi@gmail.com"
+        git config --global user.name "santhoshichimakurthi"
+        git add .
+        git status
+        git commit -m "Adding changes"
+        
+
       
       
         
