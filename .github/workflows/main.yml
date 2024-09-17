@@ -21,3 +21,11 @@ jobs:
       run: npm install
            npm --version
            lng dist
+
+    - name: Commit and Push dist folder
+      run:
+        git config --global user.email "santhoshichimakurthi@gmail.com"
+        git config --global user.name "santhoshichimakurthi"
+        git add ./accelerator-home-ui/dist
+        git commit -m "Add dist folder"
+        git push origin main
